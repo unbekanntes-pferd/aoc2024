@@ -27,7 +27,7 @@ impl SafeReport for Vec<u64> {
             .windows(2)
             .map(|window| window[0].abs_diff(window[1]))
             .max()
-            .unwrap();
+            .unwrap_or(0);
 
         (all_increasing || all_decreasing) && max_diff <= 3
     }
